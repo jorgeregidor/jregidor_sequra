@@ -5,4 +5,8 @@ class Order < ApplicationRecord
   validates :merchant_reference, presence: true
   validates :order_date, presence: true
   validates :custom_id, presence: true
+
+  scope :by_day do |date|
+    where("order_date <= ?", date)
+  end
 end
