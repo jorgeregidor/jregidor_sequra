@@ -77,10 +77,13 @@ Lastly, on the first disbursement of each month, we need to verify whether the *
    ```
  
 6.  Create seeds
+
+  First you need to add merchants.csv and orders.csv to the db/seeds/csv folder.
+
   ```bash
    rails db:seed
    ```
-   This command will load the two CSV files included in the repository, as required for the challenge.
+   This command will load the two CSV files, as required for the challenge.
    
 7.  Start Sidekiq (Optional)
 
