@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_08_154452) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_10_055703) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_08_154452) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["custom_id"], name: "index_orders_on_custom_id", unique: true
+    t.index ["disbursement_reference", "order_date", "merchant_reference"], name: "idx_on_disbursement_reference_order_date_merchant_r_386e65c828"
     t.index ["merchant_reference"], name: "index_orders_on_merchant_reference"
     t.index ["order_date"], name: "index_orders_on_order_date"
   end

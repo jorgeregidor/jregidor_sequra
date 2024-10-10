@@ -23,7 +23,7 @@ class DailyDisbursementsService
   end
 
   def find_orders(merchants)
-    Order.by_date(date).not_completed.by_merchant(merchants.pluck(:reference))
+    Order.not_completed.by_date(date).by_merchant(merchants.pluck(:reference))
   end
 
   attr_reader :date
