@@ -1,5 +1,5 @@
 class DailyDisbursementsService
-  def initialize(date)
+  def initialize(date:)
     @date = date
   end
 
@@ -12,7 +12,11 @@ class DailyDisbursementsService
       merchant_orders = grouped_orders[merchant.reference]
       next if merchant_orders.nil?
 
-      # DisbursementService.new(merchant, indexed_orders[merchant.reference]).call
+      DisbursementsService.new(
+        date: date,
+        merchant: merchant,
+        orders: merchant_orders
+      ).call
     end
   end
 
