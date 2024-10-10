@@ -29,7 +29,7 @@ class DisbursementsService
   private
 
   def calculate_commision_amount_cents(amount_cents)
-    ComissionService.new(amount_cents: amount_cents).call
+    CommisionService.new(amount_cents: amount_cents).call
   end
 
   def update_orders(disbursement)
