@@ -5,20 +5,16 @@ class Merchant < ApplicationRecord
   validates :disbursement_frequency, presence: true
 
   class DisbursementFrequency
-    WEEKLY = "WEEKLY"
-    DAILY = "DAILY"
+    WEEKLY = "WEEKLY".freeze
+    DAILY = "DAILY".freeze
   end
 
-  scope :daily do
-    where(disbursement_frequency: DisbursementFrequency::DAILY)
-  end
+  scope :daily, -> { where(disbursement_frequency: DisbursementFrequency::DAILY) }
 
-  scope :weekly do
-    where(disbursement_frequency: DisbursementFrequency::WEEKLY)
-  end
+  scope :weekly, -> { where(disbursement_frequency: DisbursementFrequency::WEEKLY) }
 
-  scope :weekly_by_wday do |wday|
+  scope :weekly_by_wday, ->(wday) {
     where(disbursement_frequency: DisbursementFrequency::WEEKLY)
     .where(disbursement_wday: wday)
-  end
+  }
 end

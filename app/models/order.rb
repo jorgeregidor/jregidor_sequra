@@ -6,7 +6,19 @@ class Order < ApplicationRecord
   validates :order_date, presence: true
   validates :custom_id, presence: true
 
-  scope :by_day do |date|
+  scope :by_ids, ->(ids) {
+    where(id: ids)
+  }
+
+  scope :by_date, ->(date) {
     where("order_date <= ?", date)
-  end
+  }
+
+  scope :not_completed, -> {
+    where(disbursement_reference: nil)
+  }
+
+  scope :by_merchant, ->(reference) {
+    where(merchant_reference: reference)
+  }
 end
