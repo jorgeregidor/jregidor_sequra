@@ -4,7 +4,7 @@ class AllTotalMonthlyFeeService
   end
 
   def call
-    Merchant.all.each do |merchant|
+    Merchant.by_live_on_before(date).each do |merchant|
       TotalMonthlyFeeService.new(merchant: merchant, date: date).call
     end
   end

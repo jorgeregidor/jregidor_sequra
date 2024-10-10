@@ -17,4 +17,6 @@ class Merchant < ApplicationRecord
     where(disbursement_frequency: DisbursementFrequency::WEEKLY)
     .where(disbursement_wday: wday)
   }
+
+  scope :by_live_on_before, ->(date) { where("live_on <= ?", date) }
 end

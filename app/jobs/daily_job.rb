@@ -4,6 +4,6 @@ class DailyJob < ApplicationJob
   def perform(values = {})
     date = values[:date] ||= Date.today
 
-    DailyDisbursementsService.new(date: date).call
+    DailyJobService.new(date: date).call
   end
 end
