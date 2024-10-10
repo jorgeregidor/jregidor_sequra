@@ -23,7 +23,7 @@ class DailyDisbursementsService
   private
 
   def find_merchants
-    Merchant.weekly.or(Merchant.weekly_by_wday(date.wday))
+    Merchant.daily.or(Merchant.weekly_by_wday(date.wday))
   end
 
   def find_orders(merchants)
