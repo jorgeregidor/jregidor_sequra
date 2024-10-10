@@ -9,7 +9,7 @@ end
 
 Sidekiq::Cron::Job.create(
   name: "Daily Job - every day at 8AM",
-  cron: "12 13 * * *",
+  cron: "0 8 * * *",
   class: "DailyJob",
   description: "Daily Job - every day at 8AM"
 )
