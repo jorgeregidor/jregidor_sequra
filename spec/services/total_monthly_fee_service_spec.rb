@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe TotalMonthlyFeeService, type: :service do
   let(:merchant) { create(:merchant, reference: 'M123', minimum_monthly_fee_cents: 5000) }
   let(:date) { Date.new(2024, 10, 1) }
-  let(:service) { TotalMonthlyFeeService.new(merchant, date) }
+  let(:service) { TotalMonthlyFeeService.new(merchant: merchant, date: date) }
 
   describe '#call' do
     context 'when there are disbursements for the merchant' do

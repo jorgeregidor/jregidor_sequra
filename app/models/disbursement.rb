@@ -6,4 +6,12 @@ class Disbursement < ApplicationRecord
   validates :disbursement_date, presence: true
   validates :merchant_amount_cents, presence: true
   validates :commision_amount_cents, presence: true
+
+  scope :by_merchant, ->(merchant_reference) {
+    where(merchant_reference: merchant_reference)
+  }
+
+  scope :by_date_range, ->(first_date, last_date) {
+    where(disbursement_date: first_date..last_date)
+  }
 end

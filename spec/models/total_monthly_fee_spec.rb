@@ -24,15 +24,5 @@ RSpec.describe TotalMonthlyFee, type: :model do
       expect(total_monthly_fee).not_to be_valid
       expect(total_monthly_fee.errors[:date]).to include("can't be blank")
     end
-
-    it 'is not valid without reached' do
-      total_monthly_fee = TotalMonthlyFee.new(
-        merchant_reference: merchant.reference,
-        date: Date.today,
-        amount_cents: 1000
-      )
-      expect(total_monthly_fee).not_to be_valid
-      expect(total_monthly_fee.errors[:reached]).to include("can't be blank")
-    end
   end
 end

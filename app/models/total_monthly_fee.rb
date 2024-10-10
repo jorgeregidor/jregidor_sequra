@@ -3,5 +3,4 @@ class TotalMonthlyFee < ApplicationRecord
 
   validates :date, presence: true
   validates :amount_cents, presence: true
-  validates :reached, presence: true
 end

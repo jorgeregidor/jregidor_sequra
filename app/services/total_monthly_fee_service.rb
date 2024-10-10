@@ -1,7 +1,7 @@
 class TotalMonthlyFeeService
-  def initialize(merchant, date)
+  def initialize(merchant:, date:)
     @merchant = merchant
-    @first_month_day = date.start_of_month
+    @first_month_day = date.beginning_of_month
     @last_month_day = date.end_of_month
   end
 
@@ -16,7 +16,7 @@ class TotalMonthlyFeeService
       merchant_reference: merchant.reference,
       date: first_month_day,
       amount_cents: total_commision_amount_cents,
-      reached: false
+      reached: reached
     )
   end
 
