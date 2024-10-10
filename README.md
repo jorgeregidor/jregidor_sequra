@@ -53,43 +53,44 @@ Lastly, on the first disbursement of each month, we need to verify whether the *
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone git@github.com:jorgeregidor/jregidor_sequra.git
    ```
 2. Start Redis: (optional)
-   - If you want to start using Sidekiq-cron and redis, uncomment the Sidekiq-Cron code in `config/initializers/sidekiq`.
-    ```bash
+
+   If you want to start using Sidekiq-cron and redis, uncomment the Sidekiq-Cron code in `config/initializers/sidekiq`.
+   
+   ```bash
    redis-server
    ```
    
-3.  Install required gems
-  ```bash
+3. Install required gems
+   ```bash
    bundle install
    ```
    
-4.  Create DataBase
-  ```bash
+4. Create DataBase
+   ```bash
    rails db:create
    ```
    
-5.  Create migrations
-  ```bash
+5. Create migrations
+   ```bash
    rails db:migrate
    ```
  
-6.  Create seeds
+6. Create seeds
 
-  First you need to add merchants.csv and orders.csv to the db/seeds/csv folder.
-
-  ```bash
+   First you need to add merchants.csv and orders.csv to the `db/seeds/csv` folder.
+   ```bash
    rails db:seed
    ```
    This command will load the two CSV files, as required for the challenge.
    
-7.  Start Sidekiq (Optional)
+7. Start Sidekiq (Optional)
 
-    To run Sidekiq, open a new terminal window and run:
+   To run Sidekiq, open a new terminal window and run:
 
-    ```bash
+   ```bash
    bundle exec sidekiq
    ```
 
