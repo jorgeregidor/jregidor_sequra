@@ -43,4 +43,6 @@ group :development, :test do
 
   gem "rspec-rails", "~> 7.0.0"
   gem "database_cleaner-active_record"
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
